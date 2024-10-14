@@ -13,7 +13,6 @@ header {
     font-size: 24px;
     font-weight: bold;
 }
-<<<<<<< HEAD
 a{
     text-decoration: none;
     color: black;
@@ -25,8 +24,6 @@ a{
     align-items: center;
     width: 200px;
 }
-=======
->>>>>>> f2160284716ba4c9d0566ca948c07c3d1259bc18
 .search-cart input {
     padding: 5px;
     border: 0 ;
@@ -51,26 +48,29 @@ a{
     width: 20px;
     height: 20px;
 }
-<<<<<<< HEAD
 
 .buttons{
     display:flex;
-
+    display: flex;
+    gap: 100px;
+    text-decoration: none; 
 }
 .buttons button{
     width: 100px;
     border: 0;
     background-color: inherit;
-=======
-.buttons {
-    display: flex;
-    gap: 100px;
-    text-decoration: none;  
-}
-.buttons button {
     width: 100;
     border: 0;
     background-color: inherit;
     text-decoration: none;
->>>>>>> f2160284716ba4c9d0566ca948c07c3d1259bc18
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+footer a{
+    padding: 15px;
 }
