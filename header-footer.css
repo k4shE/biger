@@ -47,14 +47,15 @@ a{
     width: 20px;
     height: 20px;
 }
-
-.buttons{
-    display:flex;
+nav{
+    display:  flex;
+}
+.nav-buttons{
     display: flex;
-    gap: 100px;
+    justify-content: space-around;
     text-decoration: none; 
 }
-.buttons button{
+.nav-buttons button{
     width: 100px;
     border: 0;
     background-color: inherit;
