@@ -1,13 +1,47 @@
+/* color */
+
+
+
+
+
+*{
+    box-sizing: border-box;
+}
 body {
     font-family: 'EB Garamond', serif;
-}
-.body {
     margin: 0;
-    display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
+a{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    color: inherit; 
+    position: relative;
+    padding-right: 10px;
+    transition: color 0.3s;
+}
+
+a:hover{ 
+    color: #C50E12;
+}
+a::before{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    height: 3px;
+    width: 0;
+    background-color: #C50E12;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+a:hover::before{
+    width: 100%;
+    left: 0;
+}
+
 .product-categories{
     display: flex;
     justify-content: center;
@@ -26,6 +60,11 @@ section img {
 .text1 {
     text-align: center;
     margin: 100px;
+}
+.card-item{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 .card-list .card-item{
     list-style: none;

@@ -1,9 +1,11 @@
+/* header */
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 16px 32px;
     background-color: #f5f5f5;
+    max-width: 100%;
 }
 .logo img{
     width: 100px;
@@ -54,9 +56,11 @@ nav{
     display: flex;
     justify-content: space-around;
     text-decoration: none; 
+    align-items: end;
 }
 .nav-buttons button{
-    width: 100px;
+    padding: 0 20px;
+    /* width: 100px; */
     border: 0;
     background-color: inherit;
     width: 100;
@@ -64,6 +68,29 @@ nav{
     background-color: inherit;
     text-decoration: none;
 }
+
+.search-user button{
+    /* width: 100px; */
+    display: flex;
+    margin: auto;
+    margin-left: 50px;
+    border: 0;
+    background-color: inherit;
+    width: 100;
+    border: 0;
+    background-color: inherit;
+    text-decoration: none;
+}
+
+.search-user{
+    display: flex;
+}
+
+.search-user .search-cart button{
+    margin: 0;
+}
+
+/* footer */
 .footer-links{
     display: flex;
     justify-content: space-around;
