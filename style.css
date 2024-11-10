@@ -57,6 +57,7 @@ section img {
     object-fit: cover;
 }
 
+
 .text1 {
     font-size: 24px;
     text-align: center;
@@ -98,4 +99,34 @@ section img {
     font-size: large;
     font-family: EB-Garamond;
     margin-left: 15px;
+}
+.biger-section {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.biger-card img {
+    width: 450px; 
+    height: auto;
+    border-radius: 20px;
+    margin-left: 250px;
+}
+
+.biger-section h2 {
+    font-size: 28px; 
+    color: #333;
+    font-weight: bold; 
+    margin-top: -180px;
+    margin-bottom: 10px;
+    margin-left: 850px;
+    text-align: center;
+}
+
+.biger-section p {
+    font-size: 18px; 
+    color: #666;
+    text-align: center;
+    margin-left: 850px;
+    margin-bottom: 100px;
 }
