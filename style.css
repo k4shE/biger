@@ -86,6 +86,11 @@ section img {
     object-fit: cover;
     border-radius: 10px;
 }
+.card-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s;
+}
+
 .swiper-button-next {
     margin-right: 35px;
     color: #000;

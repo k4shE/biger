@@ -1,3 +1,15 @@
 .prod-info-descrption {
     margin-top: 60px;
+    margin-left: 100px;
+}
+.biger-card {
+    width: 300px; 
+    height: 60%;
+    margin-top: 75px;
+    border-radius: 10px;
+    margin-left: 150px;
+}
+.biger-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s;
 }
