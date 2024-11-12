@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
+    <script src="./prod-filter.js"></script>
+        
 </head>
 <body>
     <header>
@@ -73,14 +75,14 @@
         </section>
         <div class="container">
             <div class="product-categories">
-                <a href="">Бүх бүтээгдэхүүн</a>
-                <a href="">Дарс</a>
-                <a href="">Оргилуун дарс</a>
-                <a href="">Виски</a>
-                <a href="">Тос</a>
+                <a href="#" data-category="all" >Бүх бүтээгдэхүүн</a>
+                <a href="#" data-category="wine" >Дарс</a>
+                <a href="#" data-category="sparkling-wine" >Оргилуун дарс</a>
+                <a href="#" data-category="whisky" >Виски</a>
+                <a href="#" data-category="oil" >Тос</a>
             </div>
             <article>
-                <div class="prod-card">
+                <div class="prod-card whisky">
                     <img src="./images/sda.png" alt="whiskey">
                     <h2>GOBI ALTAI Виски</h2>
                     <div class="prod-card-link">
@@ -93,7 +95,7 @@
                     </div>
                 </div>
                 <div class="prod-grid">
-                    <div class="prod-card">
+                    <div class="prod-card wine ">
                         <img src="./images/chatsargana.png" alt="whiskey">
                         <h2>Чацаргана дарс</h2>
                         <div class="prod-card-link">
@@ -105,7 +107,7 @@
                             <a href="./product-info.html">Дэлгэрэнгүй</a>
                         </div>
                     </div>
-                    <div class="prod-card">
+                    <div class="prod-card wine ">
                         <img src="./images/harmag.png" alt="whiskey">
                         <h2>Хармаг дарс</h2>
                         <div class="prod-card-link">
@@ -117,7 +119,7 @@
                             <a href="./product-info.html">Дэлгэрэнгүй</a>
                         </div>
                     </div>
-                    <div class="prod-card">
+                    <div class="prod-card wine ">
                         <img src="./images/huckle.png" alt="whiskey">
                         <h2>Аньс нэрс дарс</h2>
                         <div class="prod-card-link">
@@ -130,7 +132,7 @@
                         </div>
                     </div>
 
-                    <div class="prod-card">
+                    <div class="prod-card sparkling-wine ">
                         <img src="./images/champagne-second.png" alt="whiskey">
                         <h2>Оргилуун дарс</h2>
                         <div class="prod-card-link">
@@ -142,7 +144,7 @@
                             <a href="./product-info.html">Дэлгэрэнгүй</a>
                         </div>
                     </div>
-                    <div class="prod-card">
+                    <div class="prod-card sparkling-wine ">
                         <img src="./images/champagne.png" alt="whiskey">
                         <h2>Оргилуун дарс</h2>
                         <div class="prod-card-link">
@@ -154,7 +156,7 @@
                             <a href="./product-info.html">Дэлгэрэнгүй</a>
                         </div>
                     </div>
-                    <div class="prod-card">
+                    <div class="prod-card oil ">
                         <img src="./images/tos.png" alt="whiskey">
                         <h2>Чацарганы тос</h2>
                         <div class="prod-card-link">
