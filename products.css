@@ -1,0 +1,38 @@
+
+body{
+    margin: 0 auto;
+    background: #F4F4F4;
+}
+.container{
+    width: 1280px;
+    margin: 0 auto;
+}
+.prod-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.prod-card{
+    /* border-radius: 25px; */
+    display: grid;
+    justify-content: center;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 50px 0;
+    
+}
+.prod-card img{
+    margin: 0 auto;
+}
+.prod-card-link{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.prod-card-link button  {
+    background-color: inherit;
+    border: 0;
+}
