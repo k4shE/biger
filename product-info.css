@@ -1,6 +1,10 @@
 .prod-info-descrption {
     margin-top: 60px;
-    margin-left: 100px;
+    margin-left: 70px;
+}
+.prod-info-img {
+    margin-top: 50px;
+    margin-left: 50px; 
 }
 .biger-card {
     width: 300px; 
@@ -13,3 +17,8 @@
     transform: scale(1.05);
     transition: transform 0.4s;
 }
+
+.container{
+    display: flex;
+    width: 1280px;
+    margin: 0 auto;}
