@@ -37,6 +37,11 @@ body{
     border: 0;
 }
 .product-categories a.active {
-    color: #831010;
+    color: #C50E12;
     font-weight: bold;
+}
+
+
+a, p, span, h1, h2, h3, h4, h5, h6{
+   color: #C50E12;
 }
