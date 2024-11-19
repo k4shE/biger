@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="about-us.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
         <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <header>
@@ -47,11 +48,10 @@
                     <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
                 </a>
             </button>
-            <button>
-                <a href="">
-                    <i class="fa-regular fa-user" style="color: #000000;"></i>
-                </a>
-            </button>
+            <button id="log-button" class="log-button">
+                <i class="fa-regular fa-user" style="color: #000000;">
+                </i>
+        </button>
         </div>
         <!-- <div class="search-cart">
             <input type="text" placeholder="Search">
@@ -135,5 +135,24 @@
         </div>
         
 </footer>
+<div class="popup">
+    <div class="popup-content">
+        <h2>Бүртгүүлэх</h2>
+        <img src="images/close.png" alt="Close" class="close">
+        <input type="text" placeholder="Овог" class="logtext">
+        <input type="text" placeholder="Нэр" class="logtext">
+        <input type="email" placeholder="И-мэйл" class="logtext">
+        <input type="password" placeholder="Нууц үг" class="logtext">
+        <input type="date" placeholder="Төрсөн огноо" class="logtext">
+        <button id="login-button">НЭВТРЭХ</button>
+        <div class="text-cont">
+            <span class="line"></span>
+            <span class="text_">ЭСВЭЛ</span>
+            <span class="line"></span>
+        </div>
+        <div id="g_id_signin" class="google-signin"></div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
