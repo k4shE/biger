@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+main{
+    background-color: #bdbfbe;
+    color: black;
+    padding-bottom: 5%;
+}
+
+.search-cart input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+
+
+/* Blog Container */
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Blog Card */
+.blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.blog-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.blog-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: #555;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    background-color: #e04e4e;
+}
+
+.nypic {
+    width: 50%;                /* Control the image's width */
+    max-width: 600px;          /* Limit the width to prevent over-expansion */
+    height: auto;              /* Keep the height proportional */
+    display: flex;
+    justify-content: center;   /* Center content horizontally */
+    align-items: center;       /* Center content vertically */
+    margin-left: 3.9rem;
+    gap: 1rem;
+    margin-bottom: 2rem;  
+    border-radius: 8px;     /* Add some space below the image */
+}
+
+.text-content {
+    flex: 1;
+    padding: 2rem;             /* Add padding for spacing */
+    max-width: 510px;          /* Limit the text block width */
+    margin-left: 2rem;         /* Add left margin to separate from the image */    /* Dark background for contrast */
+    color: black;               /* Light text for readability */
+    border-radius: 8px;        /* Rounded corners for a softer look */
+ /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Center text vertically */
+}
+
+.text-content h2 {
+    font-size: 2rem;           /* Bigger heading */
+    font-weight: 500;          /* Slightly bolder text */
+    margin-bottom: 1rem;       /* Space below the title */
+}
+
+.text-content p {
+    font-size: 1.2rem;         /* Slightly bigger paragraph text */
+    line-height: 1.6;          /* Improve readability with better line spacing */
+    margin-bottom: 1.5rem;     /* Space between paragraphs */
+}
+
+@media (max-width: 768px) {
+    .nypic {
+        width: 100%;            /* Make the image responsive on smaller screens */
+        margin-left: 0;         /* Remove the left margin */
+    }
+
+    .text-content {
+        width: 100%;            /* Allow text content to occupy full width */
+        margin-left: 0;         /* Remove margin for full screen utilization */
+    }
+}
+
+.content{
+    display: flex;
+    padding-top: 2rem;
+}
