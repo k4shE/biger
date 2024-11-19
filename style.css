@@ -20,7 +20,7 @@ a{
     text-decoration: none;
     color: inherit; 
     position: relative;
-    padding-right: 10px;
+    /* padding-right: 10px; */
     transition: color 0.3s;
 }
 
@@ -34,7 +34,7 @@ a::before{
     left: 50%;
     height: 3px;
     width: 0;
-    background-color: #C50E12;
+    background-color: #C50E12;  
     transition: width 0.3s ease, left 0.3s ease;
 }
 a:hover::before{

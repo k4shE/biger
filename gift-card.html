@@ -7,10 +7,37 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header-footer.css">
+    <link rel="stylesheet" href="gift-card.css">
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
     <title>The Biger Brand</title>
+
+
+    
+    
 </head>
 <body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnContinue = document.getElementById("btn-continue");
+            const btnBack = document.getElementById("btn-back");
+            const section1 = document.getElementById("section1");
+            const section2 = document.getElementById("section2");
+        
+            btnContinue.addEventListener("click", function () {
+                section1.style.display = "none";
+        
+                section2.style.display = "block";
+            });
+
+            btnBack.addEventListener("click", function(){
+                section1.style.display = "block";
+        
+                section2.style.display = "none";
+            })
+
+        });
+        
+    </script>
     <header>
         <div class="logo">
             <a href="Homepage.html"><img src="/images/logo1.png" alt=""></a>
@@ -18,7 +45,7 @@
         <nav>
             <div class="nav-buttons">
                 <button><a href="products.html">Бүтээгдэхүүн</a></button>
-                <button><a href="#">Бэлгэнд</a></button>
+                <button><a href="#" style="color: #C50E12;;" >Бэлгэнд</a></button>
                 <button><a href="whisky-info.html">Бидний тухай</a></button>
                 <button><a href="#">Блог</a></button>
                 <button><a href="#">Холбоо барих</a></button>
@@ -34,20 +61,156 @@
         </div>
     </header>
     <main>
-        <section>
+        <!-- <section>
             <article>
                 <div class="container">
+                    <div class="gift-card-grid">
+                        <div class="gift-card 50 ">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>
+                        </div>
+                        <div class="gift-card 100">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>                            
+                        </div>
+                        <div class="gift-card 150">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>                            
+                        </div>
+                        <div class="gift-card 200">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>                            
+                        </div>
+                    </div>
+                    <div class="consumer-information">
+                        <form class="input-form">
+                            <div class="form-group-top">
+                                <div class="form-group">
+                                    <label for="recipient-name">Recipient's Name *</label>
+                                    <input type="text" id="recipient-name" name="recipient-name" required>
+                                    <span class="error-message">This field is required.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-email">Recipient's Email Address *</label>
+                                    <input type="email" id="recipient-email" name="recipient-email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="from">From</label>
+                                <input type="text" id="from" name="from">
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-back">Back</button>
+                                <button type="submit" class="btn-continue">Continue</button>
+                            </div>
+                        </form>
 
+                    </div>
+                </div>
+            </article>
+        </section> -->
+
+        <section id="section1">
+            <article>
+                <div class="container">
+                    <div class="gift-card-grid">
+                        <!-- Gift Card Items -->
+                        <div class="gift-card 50 ">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>
+                        </div>
+                        <div class="gift-card 100">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>                            
+                        </div>
+                        <div class="gift-card 150">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>                            
+                        </div>
+                        <div class="gift-card 200">
+                            <a href="">
+                                <img src="./images/gift-card.png" alt="gift-card-image">
+                            </a>                            
+                        </div>
+                        <!-- Repeat gift cards as needed -->
+                    </div>
+                    <div class="consumer-information">
+                        <form class="input-form">
+                            <div class="form-group-top">
+                                <div class="form-group">
+                                    <label for="recipient-name">Recipient's Name *</label>
+                                    <input type="text" id="recipient-name" name="recipient-name" required>
+                                    <span class="error-message">This field is required.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-email">Recipient's Email Address *</label>
+                                    <input type="email" id="recipient-email" name="recipient-email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="from">From</label>
+                                <input type="text" id="from" name="from">
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-back">Back</button>
+                                <button type="button" class="btn-continue" id="btn-continue"><a href="#billing-info">Continue</a></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </article>
         </section>
+    
+        <!-- Section 2: Billing Information -->
+       <div class="container">
+        <section id="section2">
+            <h2>Billing Information</h2>
+            <form>
+                <div class="form-group">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="consumer-email" ></label>
+                    <input type="email" name="" id="consumer-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="country"></label>
+                    <input type="" autocomplete="country" name="" id="">
+                </div>
+                <button type="submit" class="btn-back">Back</button>
+                <button type="button" class="btn-continue">Submit</button>
+            </form>
+        </section>
+       </div>
+
+
     </main>
     <footer>
         <div class="footer-links">
             <a href="#">Тусламж</a>
             <a href="#">Хүргэлт үйлчилгээ</a>
             <a href="#">Үйлчилгээний нөхцөл</a>
-            <a href="#"><img src="images/logo.png" alt="footer-logo"></a>
+            <a href="#"><img src="images/logos.png" alt="footer-logo"></a>
             <a href="#">Нууцлалын баталгаа</a>
             <a href="#">Асуулт, хариулт</a>
             <a href="#">Холбоо барих</a>
