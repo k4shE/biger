@@ -36,12 +36,17 @@ body{
     background-color: inherit;
     border: 0;
 }
-.product-categories a.active {
+.product-categories a:first-child.active {
     color: #C50E12;
     font-weight: bold;
 }
 
 
 a, p, span, h1, h2, h3, h4, h5, h6{
+<<<<<<< HEAD
+   /* color: #C50E12; */
+}
+=======
    color: #C50E12;
 }
+>>>>>>> 418bacb0b187585f4591cd3cebaac89a1d46c83f

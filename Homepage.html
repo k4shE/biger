@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="header-footer.css">
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <title>The Biger Brand</title>
 </head>
 <body>
@@ -30,7 +32,12 @@
                 <button><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></button>
             </div>
             <button><a href="#"><i class="fa-solid fa-bag-shopping" style="color: #000000;"></i></a></button>
-            <button><a href="#"><i class="fa-regular fa-user" style="color: #000000;"></i></a></button>
+            
+            <button id="log-button">
+                    <i class="fa-regular fa-user" style="color: #000000;">
+                    </i>
+            </button>
+            <span id="user-name-display" class="name-display"></span>
         </div>
     </header>
     
@@ -107,7 +114,34 @@
             <span><i class="fa-regular fa-copyright" style="color: #000000;"></i> 2024. Бүх эрх хуулиар хамгаалагдсан.</span>
         </div>
     </footer>
+    <div class="popup">
+        <div class="popup-content">
+            <h2>Бүртгүүлэх</h2>
+            <img src="images/close.png" alt="Close" class="close">
+            <input type="text" placeholder="Овог" class="logtext" required>
+            <input type="text" placeholder="Нэр" class="logtext" required>
+            <input type="email" placeholder="И-мэйл" class="logtext" required>
+            <input type="password" placeholder="Нууц үг" class="logtext" required>
+            <input type="date" placeholder="Төрсөн огноо" class="logtext" id="birth-date" required>
 
+            <button id="login-button">НЭВТРЭХ</button>
+            <div class="text-cont">
+                <span class="line"></span>
+                <span class="text_">ЭСВЭЛ</span>
+                <span class="line"></span>
+            </div>
+            <div id="g_id_signin" class="google-signin" 
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="signin_with"
+            data-size="large"
+            data-locale="en"
+            data-logo_alignment="left"
+            data-callback="handleCredentialResponse"></div>
+<span id="user-name-display" class="name-display"></span>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>

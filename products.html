@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="header-footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
-    <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="header-footer.css">
     <script src="./js/prod-filter.js"></script>
-        
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
+    <title>Products</title>    
 </head>
 <body>
     <header>
@@ -49,24 +49,12 @@
                     <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
                 </a>
             </button>
-            <button>
-                <a href="">
-                    <i class="fa-regular fa-user" style="color: #000000;"></i>
-                </a>
+            <button class="log-button">
+                <i class="fa-regular fa-user" style="color: #000000;">
+                </i>
             </button>
         </div>
-        <!-- <div class="search-cart">
-            <input type="text" placeholder="Search">
-            <img src="images/magnifying-glass-solid.svg" alt="search-icon">
-        </div>
-        <div class="user-basket">
-            <a href="#">
-                <img src="images/shopping-cart.png" alt="Shopping Cart">
-            </a>
-            <button>
-                <img src="images/user-regular.svg" alt="user-icon">
-            </button>
-        </div> -->
+    
     </header>
 
     <main>
@@ -192,5 +180,24 @@
             <span><i class="fa-regular fa-copyright" style="color: #000000;"></i> 2024. Бүх эрх хуулиар хамгаалагдсан.</span>
         </div>
 </footer>
+<div class="popup">
+    <div class="popup-content">
+        <h2>Бүртгүүлэх</h2>
+        <img src="images/close.png" alt="Close" class="close">
+        <input type="text" placeholder="Овог" class="logtext">
+        <input type="text" placeholder="Нэр" class="logtext">
+        <input type="email" placeholder="И-мэйл" class="logtext">
+        <input type="password" placeholder="Нууц үг" class="logtext">
+        <input type="date" placeholder="Төрсөн огноо" class="logtext">
+        <button id="login-button">НЭВТРЭХ</button>
+        <div class="text-cont">
+            <span class="line"></span>
+            <span class="text_">ЭСВЭЛ</span>
+            <span class="line"></span>
+        </div>
+        <div id="g_id_signin" class="google-signin"></div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
