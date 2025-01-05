@@ -36,7 +36,7 @@ new Swiper('.card-wrapper', {
     document.querySelector(".popup").style.display = "none";
   });
 
-  function handleCredentialResponse(response) {
+/*  function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
     // Use the response.credential (JWT token) to authenticate on your backend.
 }
@@ -58,6 +58,7 @@ window.onload = function () {
     
     google.accounts.id.prompt(); // Prompt the user for sign-in.
 };
+*/
 
 document.getElementById("login-button").addEventListener("click", function (event) {
   const surnameInput = document.querySelector(".logtext[placeholder='Овог']");

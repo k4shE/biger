@@ -20,11 +20,7 @@ a{
     text-decoration: none;
     color: inherit; 
     position: relative;
-<<<<<<< HEAD
     /* padding-right: 10px; */
-=======
-    padding-right: 0px;
->>>>>>> 418bacb0b187585f4591cd3cebaac89a1d46c83f
     transition: color 0.3s;
 }
 
@@ -95,24 +91,26 @@ section img {
     height: 75vh;     
     object-fit: cover;
 }
-
-
+/* Base styles */
 .text1 {
     font-size: 24px;
     text-align: center;
     margin: 100px;
 }
-.card-item{
+
+.card-item {
     margin: 0 auto;
     display: flex;
     justify-content: center;
 }
-.card-list .card-item{
+
+.card-list .card-item {
     list-style: none;
 }
+
 .card-list .card-item .card-link {
     width: 200px;
-    height: 615px;
+    height: 450px;
     display: block;
     background: #ffffff;
     padding: 18px;
@@ -125,9 +123,78 @@ section img {
     object-fit: cover;
     border-radius: 10px;
 }
+
 .card-image:hover {
+    /* Add hover styles here */
     transform: scale(1.05);
     transition: transform 0.4s;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    section img {
+        height: 70vh;
+    }
+
+    .text1 {
+        font-size: 22px;
+        margin: 80px;
+    }
+
+    .card-list .card-item .card-link {
+        width: 180px;
+        height: 550px;
+    }
+}
+
+@media (max-width: 992px) {
+    section img {
+        height: 65vh;
+    } 
+    .text1 {
+        font-size: 20px;
+        margin: 60px;
+    }
+
+    .card-list .card-item .card-link {
+        width: 160px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    section img {
+        height: 60vh;
+    }
+    .text1 {
+        font-size: 18px;
+        margin: 40px;
+    }
+
+    .card-list .card-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-list .card-item .card-link {
+        width: 140px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 576px) {
+    section img {
+        height: 50vh;
+    }
+    .text1 {
+        font-size: 16px;
+        margin: 20px;
+    }
+
+    .card-list .card-item .card-link {
+        width: 120px;
+        height: 400px;
+    }
 }
 
 .swiper-button-next {
@@ -138,42 +205,80 @@ section img {
     margin-left: 35px;
     color: #000;
 }
-
+/* Base styles */
 .badge {
     font-size: large;
     font-family: EB-Garamond;
     margin-left: 15px;
 }
+
 .biger-section {
     display: flex;
-    align-items: center;
-    margin: 40px 0;
+    justify-content: center;  /* Centers the entire section */
+    align-items: center;  /* Aligns items vertically */
+    margin: 40px auto;
+    padding: 20px;
+    gap: 40px;  /* Adds space between image and text */
+    max-width: 1200px;  /* Prevents it from stretching too wide */
+}
+
+.biger-card {
+    flex: 1;  /* Makes image section take half the space */
+    display: flex;
+    justify-content: center;
 }
 
 .biger-card img {
-    width: 450px; 
+    width: 100%;
+    max-width: 450px;
     height: auto;
     border-radius: 20px;
-    margin-left: 250px;
 }
 
-.biger-section h2 {
-    font-size: 28px; 
-    color: #333;
-    font-weight: bold; 
-    margin-top: -180px;
+.biger-slogan {
+    flex: 1;  /* Makes text section take half the space */
+    padding: 0 20px;
+    text-align: left;
+}
+
+.biger-slogan h2 {
+    font-size: 36px;
+    font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 850px;
-    text-align: center;
 }
 
-.biger-section p {
-    font-size: 18px; 
-    color: #666;
-    text-align: center;
-    margin-left: 850px;
-    margin-bottom: 100px;
+.biger-slogan p {
+    font-size: 20px;
+    margin-top: 10px;
 }
+
+/* Mobile layout (stack vertically) */
+@media (max-width: 768px) {
+    .biger-section {
+        flex-direction: column;  /* Stack vertically */
+        align-items: center;  /* Center items */
+        text-align: center;
+    }
+
+    .biger-card img {
+        max-width: 300px;  /* Reduce image size on mobile */
+    }
+
+    .biger-slogan {
+        text-align: center;  /* Center-align the slogan on mobile */
+    }
+
+    .biger-slogan h2 {
+        font-size: 28px;
+    }
+
+    .biger-slogan p {
+        font-size: 16px;
+    }
+}
+
+
+
 
 .popup {
     z-index: 10;
@@ -301,6 +406,16 @@ section img {
     font-weight: bold;
     margin-left: 8px; /* Space between the user icon and name */
     color: #000;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    text-align: center;
 }
 
 

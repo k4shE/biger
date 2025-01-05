@@ -25,95 +25,253 @@ a{
     align-items: center;
     width: 200px;
 }
+/* Base styles */
 .search-cart input {
     padding: 5px;
-    border: 0 ;
+    border: 0;
     background-color: #ccc;
     border-radius: 10px;
 }
-.search-cart input:focus{
-    
+
+.search-cart input:focus {
     box-shadow: 0 0 0 #ccc;
     outline: none;
 }
-.search-cart img{
+
+.search-cart img {
     width: 5%;
     padding: 5px;
 }
 
-.user-basket{
+.user-basket {
     display: flex;
     gap: 50%;
 }
+
 .user-basket img {
     width: 20px;
     height: 20px;
 }
-nav{
-    display:  flex;
+
+nav {
+    display: flex;
 }
-.nav-buttons{
+
+.nav-buttons {
     display: flex;
     justify-content: space-around;
-    text-decoration: none; 
+    text-decoration: none;
     align-items: end;
 }
-.nav-buttons button{
+
+.nav-buttons button {
     padding: 0 20px;
-    /* width: 100px; */
-    border: 0;
-    background-color: inherit;
-    width: 100;
     border: 0;
     background-color: inherit;
     text-decoration: none;
 }
 
-.search-user button{
-    /* width: 100px; */
+.search-user button {
     display: flex;
     margin: auto;
     margin-left: 50px;
     border: 0;
     background-color: inherit;
-    width: 100;
-    border: 0;
-    background-color: inherit;
     text-decoration: none;
 }
 
-.search-user{
+.search-user {
     display: flex;
 }
 
-.search-user .search-cart button{
+.search-user .search-cart button {
     margin: 0;
 }
 
 /* footer */
-.footer-links{
+.footer-links {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #6b6969;
 }
-.footer-links a{
+
+.footer-links a {
     padding: 15px;
 }
-.footer-social img{
+
+.footer-social img {
     width: 30px;
-    padding: 0 5px 0 5px;
+    padding: 0 5px;
 }
-.footer-social{
+
+.footer-social {
     display: flex;
     justify-content: center;
     gap: 10px;
     padding: 20px 0 10px 0;
     border-bottom: 1px solid #474747;
 }
-.copy-right{
+
+.copy-right {
     display: flex;
     justify-content: center;
     padding: 20px;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .search-cart {
+        width: 180px;
+    }
+
+    .search-cart img {
+        width: 4%;
+    }
+
+    .user-basket {
+        gap: 40%;
+    }
+
+    .nav-buttons button {
+        padding: 0 15px;
+    }
+
+    .search-user button {
+        margin-left: 40px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-social img {
+        width: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .search-cart {
+        width: 160px;
+    }
+
+    .search-cart img {
+        width: 3.5%;
+    }
+
+    .user-basket {
+        gap: 30%;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons button {
+        padding: 0 10px;
+    }
+
+    .search-user {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-user button {
+        margin-left: 30px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-social img {
+        width: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-cart {
+        width: 140px;
+    }
+
+    .search-cart img {
+        width: 3%;
+    }
+
+    .user-basket {
+        gap: 20%;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons button {
+        padding: 0 5px;
+    }
+
+    .search-user {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-user button {
+        margin-left: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-social img {
+        width: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-cart {
+        width: 120px;
+    }
+
+    .search-cart img {
+        width: 2.5%;
+    }
+
+    .user-basket {
+        gap: 10%;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-buttons button {
+        padding: 0 5px;
+    }
+
+    .search-user {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-user button {
+        margin-left: 10px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-social img {
+        width: 10px;
+    }
+}
+

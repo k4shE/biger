@@ -6,38 +6,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="header-footer.css">
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+   <!--<script src="https://accounts.google.com/gsi/client" async defer></script>-->
     <title>The Biger Brand</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="Homepage.html"><img src="/images/logo1.png" alt=""></a>
+            <a href="Homepage.html"><img src="/images/logo1.png" alt="The Biger Brand Logo"></a>
         </div>
         <nav>
             <div class="nav-buttons">
-                <button><a href="products.html">Бүтээгдэхүүн</a></button>
-                <button><a href="gift-card.html">Бэлгэнд</a></button>
-                <button><a href="about-us.html">Бидний тухай</a></button>
-                <button><a href="blog.html">Блог</a></button>
-                <button><a href="contact.html">Холбоо барих</a></button>
+                <a href="products.html" class="button" aria-label="Products">Бүтээгдэхүүн</a>
+                <a href="gift-card.html" class="button" aria-label="Gift Card">Бэлгэнд</a>
+                <a href="about-us.html" class="button" aria-label="About Us">Бидний тухай</a>
+                <a href="blog.html" class="button" aria-label="Blog">Блог</a>
+                <a href="contact.html" class="button" aria-label="Contact">Холбоо барих</a>
             </div>
         </nav>
         <div class="search-user">
             <div class="search-cart">
-                <input type="text" placeholder="Search">
-                <button><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></button>
+                <input type="text" placeholder="Search" aria-label="Search">
+                <button aria-label="Search"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></button>
             </div>
-            <button><a href="#"><i class="fa-solid fa-bag-shopping" style="color: #000000;"></i></a></button>
-            
-            <button id="log-button">
-                    <i class="fa-regular fa-user" style="color: #000000;">
-                    </i>
+            <a href="#" class="button" aria-label="Shopping Cart"><i class="fa-solid fa-bag-shopping" style="color: #000000;"></i></a>
+            <button id="log-button" aria-label="User Profile">
+                <i class="fa-regular fa-user" style="color: #000000;"></i>
             </button>
-            <span id="user-name-display" class="name-display"></span>
         </div>
     </header>
     
@@ -87,7 +83,7 @@
                 <div class="biger-card">
                     <img src="/images/the-biger.png" alt="">
                 </div>
-                <div>
+                <div class="biger-sloga">
                     <h2>Үндэсний үйлдвэрлэлээ дэмжье</h2>
                     <p>Таны сонголт “BIGER Brand”</p>
                 </div>
