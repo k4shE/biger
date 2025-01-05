@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="header-footer.css">
+    <script type="module" src="./components/product.js"></script>
+    <script type="module" src="./components/cart.js"></script>
     <script src="./js/prod-filter.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
@@ -70,92 +72,15 @@
                 <a href="#" data-category="oil" >Тос</a>
             </div>
             <article>
-                <div class="prod-card whisky">
-                    <img src="./images/sda.png" alt="whiskey">
-                    <h2>GOBI ALTAI Виски</h2>
-                    <div class="prod-card-link">
-                        <button>
-                            <a href="">
-                                <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                            </a>
-                        </button>
-                        <a href="./product-info.html">Дэлгэрэнгүй</a>
-                    </div>
-                </div>
-                <div class="prod-grid">
-                    <div class="prod-card wine ">
-                        <img src="./images/chatsargana.png" alt="whiskey">
-                        <h2>Чацаргана дарс</h2>
-                        <div class="prod-card-link">
-                            <button>
-                                <a href="">
-                                    <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                                </a>
-                            </button>
-                            <a href="./product-info.html">Дэлгэрэнгүй</a>
-                        </div>
-                    </div>
-                    <div class="prod-card wine ">
-                        <img src="./images/harmag.png" alt="whiskey">
-                        <h2>Хармаг дарс</h2>
-                        <div class="prod-card-link">
-                            <button>
-                                <a href="">
-                                    <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                                </a>
-                            </button>
-                            <a href="./product-info.html">Дэлгэрэнгүй</a>
-                        </div>
-                    </div>
-                    <div class="prod-card wine ">
-                        <img src="./images/huckle.png" alt="whiskey">
-                        <h2>Аньс нэрс дарс</h2>
-                        <div class="prod-card-link">
-                            <button>
-                                <a href="">
-                                    <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                                </a>
-                            </button>
-                            <a href="./product-info.html">Дэлгэрэнгүй</a>
-                        </div>
-                    </div>
+                <my-product class="whisky" cartid="cart" name="GOBI ALTAI whiskey" price="45000" img="./images/sda.png" alt="whiskey" ></my-product>
 
-                    <div class="prod-card sparkling-wine ">
-                        <img src="./images/champagne-second.png" alt="whiskey">
-                        <h2>Оргилуун дарс</h2>
-                        <div class="prod-card-link">
-                            <button>
-                                <a href="">
-                                    <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                                </a>
-                            </button>
-                            <a href="./product-info.html">Дэлгэрэнгүй</a>
-                        </div>
-                    </div>
-                    <div class="prod-card sparkling-wine ">
-                        <img src="./images/champagne.png" alt="whiskey">
-                        <h2>Оргилуун дарс</h2>
-                        <div class="prod-card-link">
-                            <button>
-                                <a href="">
-                                    <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                                </a>
-                            </button>
-                            <a href="./product-info.html">Дэлгэрэнгүй</a>
-                        </div>
-                    </div>
-                    <div class="prod-card oil ">
-                        <img src="./images/tos.png" alt="whiskey">
-                        <h2>Чацарганы тос</h2>
-                        <div class="prod-card-link">
-                            <button>
-                                <a href="">
-                                    <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                                </a>
-                            </button>
-                            <a href="./product-info.html">Дэлгэрэнгүй</a>
-                        </div>
-                    </div>
+                <div class="prod-grid">
+                    <my-product class="wine" cartid="cart" name="Чацаргана дарс" price="45000" img="./images/chatsargana.png" alt="whiskey" ></my-product>
+                    <my-product class="wine" cartid="cart" name="Хармаг дарс" price="45000" img="./images/harmag.png" alt="harmag wine" ></my-product>
+                    <my-product  class="wine" cartid="cart" name="Аньс нэрс дарс" price="45000" img="./images/huckle.png" alt="anis ners wine" ></my-product>
+                    <my-product class="sparkling-wine" cartid="cart" name="Оргилуун дарс" price="45000" img="./images/champagne-second.png" alt="sparkling-wine" ></my-product>
+                    <my-product class="sparkling-wine" cartid="cart" name="Оргилуун дарс" price="45000" img="/images/champagne.png" alt="sparkling-wine" ></my-product>
+                    <my-product class="oil" cartid="cart" name="Чацарганы тос" price="45000" img="./images/tos.png" alt="oil" ></my-product>
                 </div>
             </article>
         </div>
