@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="products.css">
     <link rel="stylesheet" href="header-footer.css">
+
     <script type="module" src="./components/product.js"></script>
     <script type="module" src="./components/cart.js"></script>
     <script src="./js/prod-filter.js"></script>
@@ -47,7 +48,7 @@
                 </button>
             </div>
             <button>
-                <a href="">
+                <a href="./cart.html">
                     <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
                 </a>
             </button>
@@ -71,6 +72,7 @@
                 <a href="#" data-category="whisky" >Виски</a>
                 <a href="#" data-category="oil" >Тос</a>
             </div>
+            
             <article>
                 <my-product class="whisky" cartid="cart" name="GOBI ALTAI whiskey" price="45000" img="./images/sda.png" alt="whiskey" ></my-product>
 
@@ -83,6 +85,10 @@
                     <my-product class="oil" cartid="cart" name="Чацарганы тос" price="45000" img="./images/tos.png" alt="oil" ></my-product>
                 </div>
             </article>
+            <section>
+                <H2>Сагс</H2>
+                <my-cart id="cart"></my-cart>
+            </section>
         </div>
     </main>
 
@@ -104,7 +110,7 @@
         <div class="copy-right">
             <span><i class="fa-regular fa-copyright" style="color: #000000;"></i> 2024. Бүх эрх хуулиар хамгаалагдсан.</span>
         </div>
-</footer>
+    </footer>
 <div class="popup">
     <div class="popup-content">
         <h2>Бүртгүүлэх</h2>

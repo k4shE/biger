@@ -10,14 +10,21 @@ class Baraa extends HTMLElement {
         this.imgPath = this.getAttribute("img");
         this.alt = this.getAttribute("alt");
         this.class = this.getAttribute("class");
+        this.buttonId = this.getAttribute("id");
         this.#render();
         this.querySelector("button").addEventListener("click", this.AddProductToCart.bind(this))
     }
 
     AddProductToCart(e) {
-        const sags = document.getElementById(this.cartid);
-        sags.addProduct(this.productName);
+        const productName = this.productName;
+        const currentUrl = new URL(window.location.href);
+        const cartUrl = new URL("cart.html", currentUrl);
+        const urlParams = new URLSearchParams(cartUrl.search);
+        urlParams.append('product', productName); 
+        cartUrl.search = urlParams.toString();
+        window.location.href = cartUrl; 
     }
+    
 
     
 
@@ -29,10 +36,8 @@ class Baraa extends HTMLElement {
                     <h2>${this.productName}</h2>
                     <div class="prod-card-link">
                         <button>
-                            <a href="">
-                                <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                            </a>
-                        </button>
+                            <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
+                        </button id="${this.id}">
                         <a href="./product-info.html">Дэлгэрэнгүй</a>   
                     </div>
                 </div>`;
