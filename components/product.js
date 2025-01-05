@@ -27,7 +27,6 @@ class Baraa extends HTMLElement {
                 `<div class="prod-card ${this.class}">
                     <img src="${this.imgPath}" alt="${this.alt}">
                     <h2>${this.productName}</h2>
-                    <p> ${ this.price }</p>
                     <div class="prod-card-link">
                         <button>
                             <a href="">
