@@ -14,6 +14,7 @@
   <title>My Cart</title>
     <script type="module" src="./components/cart.js"></script>
     <script type="module" src="./components/product.js"></script>
+    <script type="module" src="./components/cartSummary.js"></script>
   
 </head>
 <body>
@@ -46,47 +47,33 @@
     </div>
     
 </header>
-
-<main>
+<div class="cart-container">
     <section>
         <h2>Сагс</h2>
         <my-cart id="cart"></my-cart>
     </section>
-    <section>
-        <div class="order-summary">
-            <h2>Order Amount</h2>
-            <p>Product price:</p>
-            <p>Delivery fee: </p>
-            <p>Total payment amount: </p>
-            <button class="order-button">Order all products</button>
-            <div class="additional-info">
-                <a href="#">User Guide</a>
-                <a href="#">Shipping cost information</a>
-            </div>
+    <cart-summary id="summary"></cart-summary>
+</div>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="#">Тусламж</a>
+            <a href="#">Хүргэлт үйлчилгээ</a>
+            <a href="#">Үйлчилгээний нөхцөл</a>
+            <a href="#"><img src="images/logo.png" alt="footer-logo"></a>
+            <a href="#">Нууцлалын баталгаа</a>
+            <a href="#">Асуулт, хариулт</a>
+            <a href="#">Холбоо барих</a>
         </div>
-    </section>
-   
-</main>
-  <footer>
-    <div class="footer-links">
-        <a href="#">Тусламж</a>
-        <a href="#">Хүргэлт үйлчилгээ</a>
-        <a href="#">Үйлчилгээний нөхцөл</a>
-        <a href="#"><img src="images/logo.png" alt="footer-logo"></a>
-        <a href="#">Нууцлалын баталгаа</a>
-        <a href="#">Асуулт, хариулт</a>
-        <a href="#">Холбоо барих</a>
-    </div>
-    <div class="footer-social">
-        <a href="#"><img src="/images/facebook-brands-solid.svg" alt="facebook-link"></a>
-        <a href="#"><img src="/images/instagram-brands-solid.svg" alt="instagram-link"></a>
-        <a href="#"><img src="/images/envelope-regular.svg" alt="mail-link"></a>
-    </div>
-    <div class="copy-right">
-        <span><i class="fa-regular fa-copyright" style="color: #000000;"></i> 2024. Бүх эрх хуулиар хамгаалагдсан.</span>
-    </div>
-</footer>
-
+        <div class="footer-social">
+            <a href="#"><img src="/images/facebook-brands-solid.svg" alt="facebook-link"></a>
+            <a href="#"><img src="/images/instagram-brands-solid.svg" alt="instagram-link"></a>
+            <a href="#"><img src="/images/envelope-regular.svg" alt="mail-link"></a>
+        </div>
+        <div class="copy-right">
+            <span><i class="fa-regular fa-copyright" style="color: #000000;"></i> 2024. Бүх эрх хуулиар хамгаалагдсан.</span>
+        </div>
+    </footer>
   <script src="cart.js"></script>
 </body>
 </html>
