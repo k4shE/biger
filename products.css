@@ -16,7 +16,6 @@ body{
     padding: 20px 0;
 }
 .prod-card{
-    /* border-radius: 25px; */
     display: grid;
     justify-content: center;
     max-width: 350px;
@@ -43,10 +42,5 @@ body{
 
 
 a, p, span, h1, h2, h3, h4, h5, h6{
-<<<<<<< HEAD
-   /* color: #C50E12; */
-}
-=======
    color: #C50E12;
 }
->>>>>>> 418bacb0b187585f4591cd3cebaac89a1d46c83f

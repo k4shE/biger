@@ -1,54 +1,114 @@
-class Baraa extends HTMLElement {
+class Product {
     constructor() {
-        super();
-    }
-
-    connectedCallback() {
-        this.productName = this.getAttribute("name");
-        this.price = this.getAttribute("price") || "unegui";
-        this.cartid = this.getAttribute("cartid") || "cart";
-        this.imgPath = this.getAttribute("img");
-        this.alt = this.getAttribute("alt");
-        this.class = this.getAttribute("class");
-        this.buttonId = this.getAttribute("id");
-        this.#render();
-        this.querySelector("button").addEventListener("click", this.AddProductToCart.bind(this));
-    }
-
-    AddProductToCart(e) {
-        const product = {
-            productName: this.productName,
-            price: this.price,
-            cartid: this.cartid,
-            imgPath: this.imgPath,
-            alt: this.alt,
+        this.apiUrl = "https://api.jsonbin.io/v3/b/67a40594e41b4d34e484d41e";
+        this.apiHeaders = {
+            "Content-Type": "application/json",
+            "X-Master-Key": "$2a$10$aofaeXcsMz232noFjvaNxuBYbPIASxac.xpHhvf6qUHoIJ374QeBi"
         };
+        this.container = document.querySelector('.prod-grid');
+        this.init();
+        this.attachCategoryFilterListeners();
+    }
 
-        // Retrieve existing cart data from localStorage
+    async init() {
+        try {
+            this.products = await this.fetchProductData();
+            this.applyFiltersFromUrl();
+        } catch (error) {
+            console.error('Error fetching or rendering products:', error);
+        }
+    }
+
+    async fetchProductData() {
+        const response = await fetch(this.apiUrl, {
+            method: "GET",
+            headers: this.apiHeaders
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.record;
+    }
+
+    applyFiltersFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+
+        const filteredProducts = this.filterProducts(category);
+        this.renderProducts(filteredProducts);
+    }
+
+    filterProducts(category) {
+        if (!category || category === "all") {
+            return this.products;  // Return all products if no category or 'all' is specified
+        }
+
+        return this.products.filter(product => product.class.includes(category));
+    }
+
+    renderProducts(products) {
+        this.container.innerHTML = '';  // Clear existing products
+
+        if (products.length === 0) {
+            this.container.innerHTML = '<p>No products found.</p>';
+            return;
+        }
+
+        products.forEach(product => {
+            const productElement = document.createElement('div');
+            productElement.className = 'prod-card';
+            productElement.innerHTML = `
+                <img src="${product.img}" alt="${product.alt}">
+                <h2>${product.name}</h2>
+                <p class="price">${product.price}₮</p>
+                <div class="prod-card-link">
+                    <button class="add-to-cart-button" data-product-id="${product.cartid}">
+                        <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i>
+                    </button>
+                    <a href="./product-info.html">Дэлгэрэнгүй</a>
+                </div>
+            `;
+
+            // Add event listener to the "Add to Cart" button
+            productElement.querySelector('.add-to-cart-button').addEventListener('click', () => {
+                this.addProductToCart(product);
+            });
+
+            this.container.appendChild(productElement);
+        });
+    }
+
+    addProductToCart(product) {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(product);
-
-        // Save updated cart data
         localStorage.setItem('cart', JSON.stringify(cart));
-
-        // Redirect to the cart page
-        window.location.href = "cart.html";
+        alert(`${product.name} has been added to your cart!`);
     }
 
-    #render() {
-        let tmpl = `
-            <div class="prod-card ${this.class}">
-                <img src="${this.imgPath}" alt="${this.alt}">
-                <h2>${this.productName}</h2>
-                <div class="prod-card-link">
-                    <button>
-                        <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
-                    </button>
-                    <a href="./product-info.html">Дэлгэрэнгүй</a>   
-                </div>
-            </div>`;
-        this.innerHTML = tmpl;
+    attachCategoryFilterListeners() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const category = button.dataset.category;
+
+                // Update the URL without reloading the page
+                const newUrl = `${window.location.pathname}?category=${category}`;
+                window.history.pushState({ path: newUrl }, '', newUrl);
+
+                // Apply the filter and render the products
+                const filteredProducts = this.filterProducts(category);
+                this.renderProducts(filteredProducts);
+            });
+        });
     }
 }
 
-window.customElements.define('my-product', Baraa);
+// Initialize the ProductPage class
+document.addEventListener('DOMContentLoaded', () => {
+    new Product();
+});
