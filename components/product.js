@@ -43,14 +43,14 @@ class Product {
 
     filterProducts(category) {
         if (!category || category === "all") {
-            return this.products;  // Return all products if no category or 'all' is specified
+            return this.products;  
         }
 
         return this.products.filter(product => product.class.includes(category));
     }
 
     renderProducts(products) {
-        this.container.innerHTML = '';  // Clear existing products
+        this.container.innerHTML = '';  
 
         if (products.length === 0) {
             this.container.innerHTML = '<p>No products found.</p>';
@@ -63,7 +63,6 @@ class Product {
             productElement.innerHTML = `
                 <img src="${product.img}" alt="${product.alt}">
                 <h2>${product.name}</h2>
-                <p class="price">${product.price}₮</p>
                 <div class="prod-card-link">
                     <button class="add-to-cart-button" data-product-id="${product.cartid}">
                         <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i>
@@ -72,7 +71,6 @@ class Product {
                 </div>
             `;
 
-            // Add event listener to the "Add to Cart" button
             productElement.querySelector('.add-to-cart-button').addEventListener('click', () => {
                 this.addProductToCart(product);
             });
@@ -96,11 +94,9 @@ class Product {
                 event.preventDefault();
                 const category = button.dataset.category;
 
-                // Update the URL without reloading the page
                 const newUrl = `${window.location.pathname}?category=${category}`;
                 window.history.pushState({ path: newUrl }, '', newUrl);
 
-                // Apply the filter and render the products
                 const filteredProducts = this.filterProducts(category);
                 this.renderProducts(filteredProducts);
             });
@@ -108,7 +104,6 @@ class Product {
     }
 }
 
-// Initialize the ProductPage class
 document.addEventListener('DOMContentLoaded', () => {
     new Product();
 });
