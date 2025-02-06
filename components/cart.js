@@ -2,6 +2,7 @@ class Cart extends HTMLElement {
     constructor() {
         super();
         this.order = new Map();
+        this.summaryElement = document.querySelector('cart-summary');
     }
 
     connectedCallback() {
@@ -23,42 +24,56 @@ class Cart extends HTMLElement {
         }
         this.order.set(productKey, { ...productDetails, count });
         this.#render();
+        this.#updateSummary();
     }
 
     #render() {
-        let htmlContent = "";
+        let htmlContent = `
+            <div class="cart-header">
+                <h2 class="cart-title">Миний сагс</h2>
+                <button class="clear-cart-btn"><i class="fa-solid fa-trash"></i>Сагс хоослох</button>
+            </div>
+        `;
+
         this.order.forEach((product, key) => {
             htmlContent += `
                 <div class="cart-item">
-                    <div class="cart-item-image">
-                        <img src="${product.imgPath}" alt="${product.alt}">
+                    <div class="cart-item-left">
+                        <img class="cart-item-image" src="${product.imgPath}" alt="${product.alt}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${product.productName}</div>
+                            <div class="cart-item-stock">Боломжит үлдэгдэл: ${product.stock}</div>
+                        </div>
                     </div>
-                    <div class="cart-item-details">
-                        <h3 class="cart-item-title">${product.productName}</h3>
-                        <div class="cart-item-price">${product.price} ₮</div>
-                    </div>
-                    <div class="cart-item-actions">
+                    <div class="cart-item-right">
+                        <div class="cart-item-price">${product.price.toLocaleString()} ₮</div>
                         <div class="quantity-control">
                             <button class="decrease" data-key="${key}">-</button>
                             <input type="text" class="quantity-input" value="${product.count}" readonly>
                             <button class="increase" data-key="${key}">+</button>
                         </div>
-                         <div class="total">
-                            <h4 class="total-price">${(product.count * product.price).toLocaleString()} ₮</h4>
+                        <div class="cart-item-total-price">${(product.count * product.price).toLocaleString()} ₮</div>
+                        <div class="cart-item-actions">
+                            <button class="delete-btn" data-key="${key}">Устгах</button>
+                            <button class="save-btn">Хадгалах</button>
                         </div>
                     </div>
-                </div>`;
+                </div>
+            `;
         });
 
         this.innerHTML = htmlContent || `<p class="empty-cart-message">Your cart is empty.</p>`;
 
-        this.querySelectorAll('.decrease').forEach(button =>
-            button.addEventListener('click', this.decreaseQuantity.bind(this))
-        );
+        this.querySelector('.clear-cart-btn')?.addEventListener('click', this.clearCart.bind(this));
+        this.querySelectorAll('.decrease').forEach(button => button.addEventListener('click', this.decreaseQuantity.bind(this)));
+        this.querySelectorAll('.increase').forEach(button => button.addEventListener('click', this.increaseQuantity.bind(this)));
+        this.querySelectorAll('.delete-btn').forEach(button => button.addEventListener('click', this.deleteProduct.bind(this)));
+    }
 
-        this.querySelectorAll('.increase').forEach(button =>
-            button.addEventListener('click', this.increaseQuantity.bind(this))
-        );
+    clearCart() {
+        this.order.clear();
+        this.#render();
+        this.#updateSummary();
     }
 
     decreaseQuantity(event) {
@@ -73,6 +88,7 @@ class Cart extends HTMLElement {
             }
         }
         this.#render();
+        this.#updateSummary();
     }
 
     increaseQuantity(event) {
@@ -83,6 +99,27 @@ class Cart extends HTMLElement {
             this.order.set(key, product);
         }
         this.#render();
+        this.#updateSummary();
+    }
+
+    deleteProduct(event) {
+        const key = event.target.dataset.key;
+        this.order.delete(key);
+        this.#render();
+        this.#updateSummary();
+    }
+
+    #updateSummary() {
+        const products = Array.from(this.order.values()).map(product => ({
+            name: product.productName,
+            count: product.count,
+            price: product.price
+        }));
+        const totalPrice = products.reduce((sum, product) => sum + (product.count * product.price), 0);
+
+        if (this.summaryElement) {
+            this.summaryElement.updateSummary(products, totalPrice);
+        }
     }
 }
 

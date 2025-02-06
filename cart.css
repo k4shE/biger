@@ -1,89 +1,173 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'EB Garamond', serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
 }
+
+.cart-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Progress Steps */
+.cart-progress-steps {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.step {
+    font-size: 14px;
+    text-align: center;
+    margin: 0 12px;
+    color: #bdbdbd;
+}
+
+.step.active {
+    color: #000;
+    font-weight: bold;
+}
+
+/* Cart Content */
 .cart-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+    gap: 40px;
+    width: 100%;
 }
-.cart-items, .cart-summary {
+
+.cart-items-section, .cart-summary-section {
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.cart-items {
-    flex: 3;
-    margin-right: 20px;
+
+.cart-items-section {
+    flex: 2;
 }
-.cart-summary {
+
+.cart-summary-section {
     flex: 1;
-    max-width: 300px;
 }
-.cart-item {
+
+/* Cart Header */
+.cart-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
 }
+
+.cart-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.clear-cart-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Cart Item Styling */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
 .cart-item img {
-    width: 80px;
+    width: 100px;
     height: auto;
     margin-right: 20px;
     border-radius: 8px;
 }
+
 .cart-item-details {
-    flex: 1;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+
 .cart-item-title {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
 }
+
 .cart-item-stock {
-    color: #777;
+    color: #ff0000;
     font-size: 14px;
 }
-.cart-item-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+/* Price & Quantity Controls */
+.cart-item-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
 }
+
 .quantity-control {
     display: flex;
     align-items: center;
     gap: 5px;
 }
+
 .quantity-control button {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     font-size: 18px;
-    font-weight: bold;
-    background: #eee;
-    border: none;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .quantity-control input {
     width: 50px;
     text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
 }
+
+/* Cart Summary */
+.summary-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 .cart-summary .summary-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
 }
+
 .cart-summary .summary-row:last-child {
     font-weight: bold;
+    font-size: 18px;
 }
+
+/* Checkout Button */
 .checkout-btn {
-    display: block;
     width: 100%;
     padding: 15px;
     background: #b90045;
@@ -95,11 +179,26 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+    margin-top: 20px;
 }
+
+/* Coupon Section */
 .coupon-section {
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 15px;
     border: 1px solid #eee;
     background: #fffaeb;
     border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupon-btn {
+    background: transparent;
+    color: #b90045;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
 }
