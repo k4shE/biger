@@ -10,9 +10,18 @@
 
     <script type="module" src="./components/product.js"></script>
     <script type="module" src="./components/cart.js"></script>
-    <script src="./js/prod-filter.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
+
+    <script type="module">
+        import GlobalSearch from './search.js';
+    
+        new GlobalSearch("https://api.jsonbin.io/v3/b/67a40594e41b4d34e484d41e", {
+            "Content-Type": "application/json",
+            "X-Master-Key": "$2a$10$aofaeXcsMz232noFjvaNxuBYbPIASxac.xpHhvf6qUHoIJ374QeBi"
+        });
+    </script>
+    
     <title>Products</title>    
 </head>
 <body>
@@ -42,11 +51,11 @@
         </nav>
         <div class="search-user">
             <div class="search-cart">
-                <input type="text" placeholder="Search">
+                <input type="text" id="search-input" placeholder="Search">
                 <button>
                     <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
                 </button>
-            </div>
+            </div>            
             <button>
                 <a href="./cart.html">
                     <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i> 
@@ -61,6 +70,8 @@
     </header>
 
     <main>
+        <div id="search-results" class="search-results"></div>
+
         <section>
             <img src="images/banner2.png" alt="banner" style="width: 100%; ">
         </section>
@@ -74,9 +85,8 @@
             </div>
             
             <article>
-                <!-- <my-product id="prod001" ></my-product> -->
-
                 <div class="prod-grid">
+                    <my-product id="prod001" ></my-product>
                     <my-product id="prod002" ></my-product>
                     <my-product id="prod003" ></my-product>
                     <my-product id="prod004" ></my-product>
