@@ -41,7 +41,73 @@ body{
     font-weight: bold;
 }
 
+.prod-flex {
+    display: flex;
+     /* Ensures space between the cards */
+    align-items: stretch; /* Aligns both cards to the same height */
+    gap: 20px; /* Adds spacing between the cards */
+}
+
+.prod-card-sparkling-wine {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    flex: 1; /* Default size for both cards */
+}
+
+.prod-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.prod-card h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #C50E12;
+}
+
+.prod-card p {
+    font-size: 1rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.prod-card-link {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Optional: Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .prod-flex {
+        flex-direction: column;
+    }
+    .prod-card {
+        flex: 1;
+        width: 100%;
+    }
+}
+.prod-card-sparkling-wine {
+    flex: none; /* Makes this card twice as large as the whisky card */
+    width: 784px; /* Set a percentage or fixed width */
+}
+
+.prod-card.whisky {
+    margin-left: 63px;
+    width: 40%; /* Adjust width accordingly */
+}
+
 
 a, p, span, h1, h2, h3, h4, h5, h6{
+<<<<<<< Updated upstream
    color: #C50E12;
+=======
+   /* color: #C50E12; */
+>>>>>>> Stashed changes
 }
