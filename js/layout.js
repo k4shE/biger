@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let page = sessionStorage.getItem("currentPage") || "home.html";
+    let page = sessionStorage.getItem("currentPage") || "index.html";
     loadPage(page);
 
     document.querySelectorAll("nav .nav-buttons a, div.logo a").forEach(link => {
