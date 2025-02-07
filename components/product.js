@@ -83,7 +83,7 @@ class Product {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push(product);
         localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${product.name} has been added to your cart!`);
+        alert(`${product.name} Бүтээгдэхүүн сагсанд амжилттай нэмэгдлээ.`);
     }
 
     attachCategoryFilterListeners() {

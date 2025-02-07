@@ -69,14 +69,20 @@ body {
     font-weight: bold;
 }
 
-.clear-cart-btn {
-    background: #f44336;
+.clear-cart-btn, .delete-btn {
+    background: #e74c3c;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.clear-cart-btn:hover, .delete-btn:hover {
+    background: #c0392b;
 }
 
 /* Cart Item Styling */
@@ -84,14 +90,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px;
     border-bottom: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.cart-item-left {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Increased spacing between image and text */
 }
 
 .cart-item img {
-    width: 100px;
+    width: 40px; /* Adjusted image size */
     height: auto;
-    margin-right: 20px;
     border-radius: 8px;
 }
 
@@ -99,13 +112,13 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px; /* More spacing between name & stock */
 }
 
-.cart-item-title {
+.cart-item-name {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Added more margin for better spacing */
 }
 
 .cart-item-stock {
@@ -114,36 +127,43 @@ body {
 }
 
 /* Price & Quantity Controls */
+.cart-item-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
 .cart-item-price {
     font-size: 18px;
     font-weight: bold;
-    margin-right: 20px;
 }
 
 .quantity-control {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
 }
 
 .quantity-control button {
-    width: 35px;
-    height: 35px;
-    font-size: 18px;
-    background: #f0f0f0;
+    background-color: #f5f5f5;
     border: 1px solid #ccc;
-    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 18px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-.quantity-control input {
-    width: 50px;
+.quantity-control button:hover {
+    background-color: #ddd;
+}
+
+.quantity-input {
+    width: 40px;
     text-align: center;
+    font-size: 16px;
     border: 1px solid #ccc;
-    padding: 5px;
     border-radius: 5px;
 }
 
@@ -201,4 +221,10 @@ body {
     border: none;
     cursor: pointer;
     text-decoration: underline;
+}
+
+/* Make delete button full width for better visibility */
+.delete-btn {
+    width: 100px;
+    text-align: center;
 }

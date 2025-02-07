@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,42 @@
     <link rel="stylesheet" href="header-footer.css">
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <!-- Modules for components -->
     <script type="module" src="./components/cart.js"></script>
     <script type="module" src="./components/product.js"></script>
     <script type="module" src="./components/cartSummary.js"></script>
+    
+    <!-- Script for header and footer -->
     <script src="./js/load-header-footer.js"></script>
+
+    <!-- ✅ Fetch and update stock dynamically -->
+    <script>
+        async function fetchAndUpdateStock() {
+    try {
+        const response = await fetch("http://localhost:3000/api/products");
+        const products = await response.json();
+        
+        console.log("Fetched Products:", products);  // ✅ Debug fetched data
+
+        localStorage.setItem("products", JSON.stringify(products));
+
+        products.forEach(product => {
+            document.querySelectorAll(`#stock-${product.prodId}`).forEach(el => {
+                console.log(`Updating ${product.prodId} stock to`, product.stock);  // ✅ Debug UI update
+                el.textContent = `Боломжит үлдэгдэл: ${product.stock}`;
+            });
+        });
+
+    } catch (error) {
+        console.error("Error loading products:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", fetchAndUpdateStock);
+
+        
+    </script>
 </head>
 <body>
     <header id="header"></header>

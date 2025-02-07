@@ -20,11 +20,7 @@ a{
     text-decoration: none;
     color: inherit; 
     position: relative;
-<<<<<<< HEAD
-    /* padding-right: 10px; */
-=======
     padding-right: 0px;
->>>>>>> 418bacb0b187585f4591cd3cebaac89a1d46c83f
     transition: color 0.3s;
 }
 

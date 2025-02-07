@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="products.css">
@@ -13,16 +14,60 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
     <script src="./js/load-header-footer.js"></script>
-    <script type="module">
-        import GlobalSearch from './search.js';
-    
-        new GlobalSearch("https://api.jsonbin.io/v3/b/67a40594e41b4d34e484d41e", {
-            "Content-Type": "application/json",
-            "X-Master-Key": "$2a$10$aofaeXcsMz232noFjvaNxuBYbPIASxac.xpHhvf6qUHoIJ374QeBi"
+
+    <script>
+        // Fetch products from bin.json and populate the product grid
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch("./bin.json"); // Load bin.json locally
+                const products = await response.json();
+                
+                const productGrid = document.querySelector(".prod-grid");
+                productGrid.innerHTML = ""; // Clear placeholder products
+
+                products.forEach(product => {
+                    const productElement = document.createElement("div");
+                    productElement.classList.add("product");
+                    productElement.innerHTML = `
+                        <img src="${product.img}" alt="${product.alt}">
+                        <h3>${product.name}</h3>
+                        <p class="price">${product.price.toLocaleString()} ₮</p>
+                        <p class="stock">Үлдэгдэл: ${product.stock}</p>
+                        <button class="add-to-cart" data-id="${product.prodId}">Сагсанд нэмэх</button>
+                    `;
+                    productGrid.appendChild(productElement);
+                });
+
+                // Attach event listeners to "Add to Cart" buttons
+                document.querySelectorAll(".add-to-cart").forEach(button => {
+                    button.addEventListener("click", (event) => {
+                        addToCart(event.target.dataset.id, products);
+                    });
+                });
+
+            } catch (error) {
+                console.error("Error loading products:", error);
+            }
         });
+
+        function addToCart(productId, products) {
+            const selectedProduct = products.find(p => p.prodId === productId);
+            if (!selectedProduct) return;
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let existingProduct = cart.find(p => p.prodId === productId);
+
+            if (existingProduct) {
+                existingProduct.count += 1; // Increase quantity if product exists
+            } else {
+                selectedProduct.count = 1; // First time adding product
+                cart.push(selectedProduct);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${selectedProduct.name} сагсанд нэмэгдлээ!`);
+        }
     </script>
-    
-    <title>Products</title>    
 </head>
 <body>
     <header id="header"></header>
@@ -30,8 +75,9 @@
         <div id="search-results" class="search-results"></div>
 
         <section>
-            <img src="images/banner2.png" alt="banner" style="width: 100%; ">
+            <img src="images/banner2.png" alt="banner" style="width: 100%;">
         </section>
+        
         <div class="container">
             <div class="product-categories">
                 <a href="#" class="filter-btn" data-category="all">Бүгд</a>
@@ -40,43 +86,14 @@
                 <a href="#" class="filter-btn" data-category="sparkling-wine">Оргилуун дарс</a>
                 <a href="#" class="filter-btn" data-category="oil">Тос</a>
             </div>
-            
+
             <article>
                 <div class="prod-grid">
-                    <my-product id="prod001" ></my-product>
-                    <my-product id="prod002" ></my-product>
-                    <my-product id="prod003" ></my-product>
-                    <my-product id="prod004" ></my-product>
-                    <my-product id="prod005" ></my-product>
-                    <my-product id="prod006" ></my-product>
-                    <my-product id="prod007" ></my-product>
+                    <!-- Products will be inserted here dynamically -->
                 </div>
             </article>
-            <!-- <section>
-                <H2>Сагс</H2>
-                <my-cart id="cart"></my-cart>
-            </section> -->
         </div>
     </main>
     <footer id="footer"></footer>
-<div class="popup">
-    <div class="popup-content">
-        <h2>Бүртгүүлэх</h2>
-        <img src="images/close.png" alt="Close" class="close">
-        <input type="text" placeholder="Овог" class="logtext">
-        <input type="text" placeholder="Нэр" class="logtext">
-        <input type="email" placeholder="И-мэйл" class="logtext">
-        <input type="password" placeholder="Нууц үг" class="logtext">
-        <input type="date" placeholder="Төрсөн огноо" class="logtext">
-        <button id="login-button">НЭВТРЭХ</button>
-        <div class="text-cont">
-            <span class="line"></span>
-            <span class="text_">ЭСВЭЛ</span>
-            <span class="line"></span>
-        </div>
-        <div id="g_id_signin" class="google-signin"></div>
-    </div>
-</div>
-<script src="script.js"></script>
 </body>
 </html>
