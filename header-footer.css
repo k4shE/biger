@@ -69,6 +69,10 @@ nav{
     text-decoration: none;
 }
 
+.nav-buttons a.active {
+    color: #C50E12;
+}
+
 .search-user button{
     /* width: 100px; */
     display: flex;
@@ -105,6 +109,7 @@ nav{
     width: 30px;
     padding: 0 5px 0 5px;
 }
+
 .footer-social{
     display: flex;
     justify-content: center;
