@@ -3,7 +3,7 @@ class Cart extends HTMLElement {
         super();
         this.order = new Map();
         this.summaryElement = document.querySelector("cart-summary");
-        this.loadProductsFromJSON(); // Fetch products from bin.json
+        this.loadProductsFromJSON();
     }
 
     async loadProductsFromJSON() {
@@ -12,7 +12,7 @@ class Cart extends HTMLElement {
             const products = await response.json();
             localStorage.setItem("products", JSON.stringify(products));
 
-            // Ensure cart updates with the latest product data
+        
             this.loadCartFromLocalStorage();
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -29,9 +29,9 @@ class Cart extends HTMLElement {
         cart.forEach(product => {
             this.order.set(product.prodId, {
                 ...product,
-                count: product.count ?? 1, // Default to 1 if undefined
-                price: product.price ?? 0, // Default to 0 if undefined
-                stock: product.stock ?? 0  // Default to 0 if undefined
+                count: product.count ?? 1, 
+                price: product.price ?? 0, 
+                stock: product.stock ?? 0 
             });
         });
         this.render();
@@ -51,7 +51,6 @@ class Cart extends HTMLElement {
 
         this.order.set(productKey, { ...productDetails, count });
 
-        // Save updated cart to localStorage
         this.saveCartToLocalStorage();
         this.render();
         this.updateSummary();
@@ -120,7 +119,7 @@ class Cart extends HTMLElement {
         const key = event.target.dataset.key;
         const product = this.order.get(key);
         if (product) {
-            product.count = Math.max(1, product.count - 1); // Prevent negative values
+            product.count = Math.max(1, product.count - 1); 
             this.order.set(key, product);
         }
         this.saveCartToLocalStorage();
@@ -170,3 +169,233 @@ class Cart extends HTMLElement {
 }
 
 window.customElements.define("my-cart", Cart);
+
+
+
+class CartStep2 extends HTMLElement {
+    constructor() {
+        super();
+
+        this.attachShadow({ mode: 'open' });
+
+        this.shadowRoot.innerHTML = `
+            <style>
+                .delivery-form {
+                    font-family: Arial, sans-serif;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    border-bottom: 1px solid #eee;
+                    border-radius: 10px;
+                    background-color: #fff;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .form-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                }
+
+                .form-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                }
+
+                .radio-group {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .radio-group.active {
+                    background-color: #e0e0e0;
+                }
+
+                .form-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                }
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .full-width {
+                    grid-column: span 2;
+                }
+
+                input, select {
+                    padding: 8px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    margin-top: 5px;
+                }
+
+                .form-note {
+                    margin-top: 20px;
+                    font-size: 14px;
+                    color: #555;
+                }
+            </style>
+
+            <div class="delivery-form">
+                <h2 class="form-title">Хүргэлтийн хаяг</h2>
+
+                <div class="form-row radio-row form-grid">
+                    <label class="radio-group active" id="radio-individual">
+                        <input type="radio" name="type" value="individual" checked>
+                        <span class="radio-label">
+                            <i class="icon-user"></i> Хувь хүн
+                        </span>
+                    </label>
+                    <label class="radio-group" id="radio-organization">
+                        <input type="radio" name="type" value="organization">
+                        <span class="radio-label">
+                            <i class="icon-building"></i> Албан байгууллага
+                        </span>
+                    </label>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Нэр</label>
+                        <input type="text" name="first_name" placeholder="Нэр оруулна уу">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Овог</label>
+                        <input type="text" name="last_name" placeholder="Овог оруулна уу">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Имэйл</label>
+                        <input type="email" name="email" placeholder="Имэйл хаягаа оруулна уу">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Утасны дугаар</label>
+                        <input type="text" name="phone" placeholder="Утасны дугаараа оруулна уу">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Хот/Аймаг</label>
+                        <select name="city">
+                            <option value="ub">Улаанбаатар хот</option>
+                            <option value="arhangai">Архангай аймаг</option>
+                            <option value="baynolgii">Баян-Өлгий аймаг</option>
+                            <option value="baynhongor">Баянхонгор аймаг</option>
+                            <option value="bulgan">Булган аймаг</option>
+                            <option value="govialtai">Говь-Алтай аймаг</option>
+                            <option value="dornogovi">Дорноговь аймаг</option>
+                            <option value="dornod">Дорнод аймаг</option>
+                            <option value="dundgovi">Дундговь аймаг</option>
+                            <option value="zavhan">Завхан аймаг</option>
+                            <option value="ovorhangai">Өвөрхангай аймаг</option>
+                            <option value="omnogovi">Өмнөговь аймаг</option>
+                            <option value="suhbaatar">Сүхбаатар аймаг</option>
+                            <option value="selenge">Сэлэнгэ аймаг</option>
+                            <option value="tov">Төв аймаг</option>
+                            <option value="uvs">Увс аймаг</option>
+                            <option value="hovd">Ховд аймаг</option>
+                            <option value="hovsgol">Хөвсгөл аймаг</option>
+                            <option value="hentii">Хэнтий аймаг</option>
+                            <option value="darhan">Дархан-Уул аймаг</option>
+                            <option value="orhon">Орхон аймаг</option>
+                            <option value="govisumber">Говьсүмбэр аймаг</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дүүрэг/Сум</label>
+                        <select name="district">
+                            <option value="baganuur">Багануур дүүрэг</option>
+                            <option value="bagahangai">Багахангай дүүрэг</option>
+                            <option value="bayngol">Баянгол дүүрэг</option>
+                            <option value="baynzurh">Баянзүрх дүүрэг</option>
+                            <option value="nalaih">Налайх дүүрэг</option>
+                            <option value="songinohairhan">Сонгинохайрхан дүүрэг</option>
+                            <option value="suhbaatar">Сүхбаатар дүүрэг</option>
+                            <option value="hanuul">Хан-Уул дүүрэг</option>
+                            <option value="chingeltei">Чингэлтэй дүүрэг</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Хороо/Баг</label>
+                        <select name="subdistrict">
+                            <option value="1">1-р хороо</option>
+                            <option value="2">2-р хороо</option>
+                            <option value="3">3-р хороо</option>
+                            <option value="4">4-р хороо</option>
+                            <option value="5">5-р хороо</option>
+                            <option value="6">6-р хороо</option>
+                            <option value="7">7-р хороо</option>
+                            <option value="8">8-р хороо</option>
+                            <option value="9">9-р хороо</option>
+                            <option value="10">10-р хороо</option>
+                            <option value="11">11-р хороо</option>
+                            <option value="12">12-р хороо</option>
+                            <option value="13">13-р хороо</option>
+                            <option value="14">14-р хороо</option>
+                            <option value="15">15-р хороо</option>
+                            <option value="16">16-р хороо</option>
+                            <option value="17">17-р хороо</option>
+                            <option value="18">18-р хороо</option>
+                            <option value="19">19-р хороо</option>
+                            <option value="20">20-р хороо</option>
+                            <option value="21">21-р хороо</option>
+                            <option value="22">22-р хороо</option>
+                            <option value="23">23-р хороо</option>
+                            <option value="24">24-р хороо</option>
+                            <option value="25">25-р хороо</option>
+                            <option value="26">26-р хороо</option>
+                            <option value="27">27-р хороо</option>
+                            <option value="28">28-р хороо</option>
+                            <option value="29">29-р хороо</option>
+                            <option value="30">30-р хороо</option>
+                            <option value="31">31-р хороо</option>
+                            <option value="32">32-р хороо</option>
+                            <option value="33">33-р хороо</option>
+                            <option value="34">34-р хороо</option>
+                            <option value="35">35-р хороо</option>
+                            <option value="36">36-р хороо</option>
+                            <option value="37">37-р хороо</option>
+                            <option value="38">38-р хороо</option>
+                            <option value="39">39-р хороо</option>
+                            <option value="40">40-р хороо</option>
+                            <option value="41">41-р хороо</option>
+                            <option value="42">42-р хороо</option>
+                            <option value="43">43-р хороо</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Дэлгэрэнгүй хаяг</label>
+                        <input type="text" name="address" placeholder="Дэлгэрэнгүй хаяг оруулна уу">
+                    </div>
+                </div>
+
+                <p class="form-note">Та хаягаа зөв дэлгэрэнгүй, тодорхой оруулснаар хүргэлт удаашрахгүй байх боломжийг хангана уу</p>
+            </div>
+        `;
+
+        this.shadowRoot.querySelectorAll('.radio-group').forEach(group => {
+            group.addEventListener('click', () => {
+                this.shadowRoot.querySelectorAll('.radio-group').forEach(g => g.classList.remove('active'));
+                group.classList.add('active');
+                group.querySelector('input').checked = true;
+            });
+        });
+    }
+}
+
+customElements.define('cart-step2', CartStep2);

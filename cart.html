@@ -13,28 +13,26 @@
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     
-    <!-- Modules for components -->
     <script type="module" src="./components/cart.js"></script>
     <script type="module" src="./components/product.js"></script>
     <script type="module" src="./components/cartSummary.js"></script>
-    
-    <!-- Script for header and footer -->
+    <script type="module" src="./components/paymentMethod.js"></script>
+    <script type="module" src="./components/receipt.js"></script>
     <script src="./js/load-header-footer.js"></script>
 
-    <!-- ✅ Fetch and update stock dynamically -->
     <script>
         async function fetchAndUpdateStock() {
     try {
         const response = await fetch("http://localhost:3000/api/products");
         const products = await response.json();
         
-        console.log("Fetched Products:", products);  // ✅ Debug fetched data
+        console.log("Fetched Products:", products);  
 
         localStorage.setItem("products", JSON.stringify(products));
 
         products.forEach(product => {
             document.querySelectorAll(`#stock-${product.prodId}`).forEach(el => {
-                console.log(`Updating ${product.prodId} stock to`, product.stock);  // ✅ Debug UI update
+                console.log(`Updating ${product.prodId} stock to`, product.stock);      
                 el.textContent = `Боломжит үлдэгдэл: ${product.stock}`;
             });
         });
@@ -51,15 +49,43 @@ document.addEventListener("DOMContentLoaded", fetchAndUpdateStock);
 </head>
 <body>
     <header id="header"></header>
+    <div class="progress-navigation">
+        <div class="step active" id="step-1">
+            <div class="circle">1</div>
+            <span>САГС</span>
+        </div>
+        <div class="step" id="step-2">
+            <div class="circle">2</div>
+            <span>ХАЯГ</span>
+        </div>
+        <div class="step" id="step-3">
+            <div class="circle">3</div>
+            <span>ТӨЛБӨР</span>
+        </div>
+        <div class="step" id="step-4">
+            <div class="circle">4</div>
+            <span>ДУУСГАХ</span>
+        </div>
+    </div>
     <main class="cart-main-container">
         <div class="cart-container">
-            <section class="cart-items-section">
+            <section class="cart-items-section" id="cart-step-1">
                 <my-cart id="cart"></my-cart>
+            </section>
+            <section class="hidden cart-items-section"  id="cart-step-2">
+                <cart-step2 ></cart-step2>
+            </section>
+            <section class="hidden cart-items-section" id="payment-method">
+                <payment-section></payment-section>
+            </section>
+            <section class="hidden cart-items-section" id="last-step">
+                <receipt-section></receipt-section>
             </section>
             <section class="cart-summary-section">
                 <cart-summary id="summary"></cart-summary>
             </section>
         </div>
+        
     </main>
     <footer id="footer"></footer>
 </body>
