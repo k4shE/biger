@@ -67,7 +67,7 @@ class Product {
                     <button class="add-to-cart-button" data-product-id="${product.cartid}">
                         <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i>
                     </button>
-                    <a href="./product-info.html">Дэлгэрэнгүй</a>
+                    <a href="./product-info.html?product=${product.param}">Дэлгэрэнгүй</a>
                 </div>
             `;
 
@@ -107,3 +107,6 @@ class Product {
 document.addEventListener('DOMContentLoaded', () => {
     new Product();
 });
+
+
+
