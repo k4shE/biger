@@ -1,26 +1,32 @@
 <div class="logo">
-    <a href="index.html"><img src="/images/logos.png" alt=""></a>
+    <a href="index.html"><img src="/images/logos.png" alt="Biger Brand Logo"></a>
 </div>
 <nav>
+    <button class="hamburger" aria-label="Toggle Navigation">
+        <i class="fa-solid fa-bars" style="color: #000000;"></i>
+    </button>
     <div class="nav-buttons">
-        <button><a href="products.html">Бүтээгдэхүүн</a></button>
-        <button><a href="gift-card.html">Бэлгэнд</a></button>
-        <button><a href="about-us.html">Бидний тухай</a></button>
-        <button><a href="blog.html">Блог</a></button>
-        <button><a href="contact.html">Холбоо барих</a></button>
+        <button><a href="products.html" aria-label="View Products">Бүтээгдэхүүн</a></button>
+        <button><a href="gift-card.html" aria-label="Gift Cards">Бэлгэнд</a></button>
+        <button><a href="about-us.html" aria-label="About Us">Бидний тухай</a></button>
+        <button><a href="blog.html" aria-label="Blog">Блог</a></button>
+        <button><a href="contact.html" aria-label="Contact Us">Холбоо барих</a></button>
     </div>
 </nav>
 <div class="search-user">
     <div class="search-cart">
-        <input type="text" placeholder="Search">
-        <button><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></button>
+        <label for="search-input" class="visually-hidden"></label>
+        <input type="text" id="search-input" placeholder="Search" aria-label="Search">
+        <button aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+        </button>
     </div>
-    <button id="shop-btn">
-        <a href="cart.html">
+    <button id="shop-btn" aria-label="Shop Now">
+        <a href="cart.html" aria-label="View Cart">
             <i class="fa-solid fa-bag-shopping" style="color: #000000;"></i>
         </a>
     </button>
-    <button id="log-button">
+    <button id="log-button" aria-label="User Account">
         <i class="fa-regular fa-user" style="color: #000000;"></i>
     </button>
     <span id="user-name-display" class="name-display"></span>

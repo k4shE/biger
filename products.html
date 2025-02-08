@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="products.css">
-    <link rel="stylesheet" href="header-footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/header-footer.css">
 
     <script type="module" src="./components/product.js"></script>
     <script type="module" src="./components/cart.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://kit.fontawesome.com/691e548ca5.js" crossorigin="anonymous"></script>
     <script src="./js/load-header-footer.js"></script>
 
@@ -33,7 +32,7 @@
                         <h3>${product.name}</h3>
                         <p class="price">${product.price.toLocaleString()} ₮</p>
                         <p class="stock">Үлдэгдэл: ${product.stock}</p>
-                        <button class="add-to-cart" data-id="${product.prodId}">Сагсанд нэмэх</button>
+                        <button class="add-to-cart" data-id="${product.prodId}" aria-label="Сагсанд нэмэх ${product.name}">Сагсанд нэмэх</button>
                     `;
                     productGrid.appendChild(productElement);
                 });
@@ -75,20 +74,20 @@
         <div id="search-results" class="search-results"></div>
 
         <section>
-            <img src="images/banner2.png" alt="banner" style="width: 100%;">
+            <img src="images/banner2.png" alt="Banner" style="width: 100%;">
         </section>
         
         <div class="container">
-            <div class="product-categories">
-                <a href="#" class="filter-btn" data-category="all">Бүгд</a>
-                <a href="#" class="filter-btn" data-category="wine">Дарс</a>
-                <a href="#" class="filter-btn" data-category="whisky">Виски</a>
-                <a href="#" class="filter-btn" data-category="sparkling-wine">Оргилуун дарс</a>
-                <a href="#" class="filter-btn" data-category="oil">Тос</a>
+            <div class="product-categories" role="navigation" aria-label="Product Categories">
+                <a href="#" class="filter-btn" data-category="all" aria-label="Show all products">Бүгд</a>
+                <a href="#" class="filter-btn" data-category="wine" aria-label="Show wine products">Дарс</a>
+                <a href="#" class="filter-btn" data-category="whisky" aria-label="Show whisky products">Виски</a>
+                <a href="#" class="filter-btn" data-category="sparkling-wine" aria-label="Show sparkling wine products">Оргилуун дарс</a>
+                <a href="#" class="filter-btn" data-category="oil" aria-label="Show oil products">Тос</a>
             </div>
 
             <article>
-                <div class="prod-grid">
+                <div class="prod-grid" role="region" aria-label="Product Grid">
                     <!-- Products will be inserted here dynamically -->
                 </div>
             </article>

@@ -1,0 +1,111 @@
+/* Global Styles */
+body {
+    margin: 0 auto;
+    background: #F4F4F4;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Grid Layout for Products */
+.prod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust min-width for responsiveness */
+    gap: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Product Card */
+.prod-card {
+    display: grid;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prod-card img {
+    margin: 0 auto;
+    max-width: 100%; /* Make image responsive */
+    height: auto;
+}
+
+/* Button Link Layout */
+.prod-card-link {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px; /* Add some gap between buttons */
+}
+
+.prod-card-link button {
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.prod-card-link button:hover {
+    background-color: #C50E12;
+    color: #fff;
+}
+
+/* Active Link Styling */
+.product-categories a:first-child.active {
+    color: #C50E12;
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .prod-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjust for medium screens */
+        padding: 15px 0;
+    }
+
+    .prod-card {
+        padding: 15px;
+    }
+
+    .prod-card-link button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .prod-grid {
+        grid-template-columns: 1fr; /* Stack products on smaller screens */
+        padding: 10px 0;
+    }
+
+    .prod-card {
+        padding: 10px;
+    }
+
+    .prod-card-link button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prod-card {
+        padding: 10px;
+    }
+
+    .prod-card-link {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        gap: 5px;
+    }
+}

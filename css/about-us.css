@@ -34,8 +34,7 @@ body {
     justify-content: space-between;
     padding: 4rem;
     background-color: white;
-    
-
+    flex-wrap: wrap;
 }
 
 .text-content {
@@ -43,7 +42,6 @@ body {
     padding-right: 1rem;
     margin-top: 5%;
     padding-left: 2rem;
-
 }
 
 .text-content h2 {
@@ -82,7 +80,7 @@ body {
     z-index: 1;
 }
 
-p.test {    
+p.test {
     width: 25em;
     word-wrap: break-word;
 }
@@ -103,8 +101,7 @@ p.test {
     padding-bottom: 2rem;
     background-color: white;
     margin-bottom: 5rem;
-    
-
+    flex-wrap: wrap;
 }
 
 .text-content2 {
@@ -112,8 +109,8 @@ p.test {
     margin-top: 10%;
     padding-right: 8rem;
     gap: 1rem;
-
 }
+
 .text-content2 h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -125,14 +122,16 @@ p.test {
     line-height: 1.6;
     color: #333;
 }
+
 .images2 {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 2rem;
     flex: 1;
-    margin-left: -4rem; 
+    margin-left: -4rem;
 }
+
 .images2 img.pic1 {
     width: 300px;
     height: 200px;
@@ -149,3 +148,102 @@ p.test {
     z-index: 2;
 }
 
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .content,
+    .content2 {
+        padding: 2rem;
+    }
+
+    .images img.est,
+    .images img.old,
+    .images2 img.pic1,
+    .images2 img.pic2 {
+        width: 250px;
+        height: 180px;
+    }
+
+    .text-content,
+    .text-content2 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .banner-text {
+        padding-left: 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner img {
+        height: 25rem;
+    }
+
+    .banner-text {
+        font-size: 1.1rem;
+    }
+
+    .content,
+    .content2 {
+        flex-direction: column;
+    }
+
+    .text-content,
+    .text-content2 {
+        margin-top: 3%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .images img.est,
+    .images img.old,
+    .images2 img.pic1,
+    .images2 img.pic2 {
+        width: 100%;
+        height: auto;
+        margin-top: 1rem;
+    }
+
+    .bottom-pic {
+        height: 20rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner img {
+        height: 20rem;
+    }
+
+    .banner-text {
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    .content,
+    .content2 {
+        padding: 1rem;
+    }
+
+    .text-content h2,
+    .text-content2 h2 {
+        font-size: 1.5rem;
+    }
+
+    .text-content p,
+    .text-content2 p {
+        font-size: 0.9rem;
+    }
+
+    .images img.est,
+    .images img.old,
+    .images2 img.pic1,
+    .images2 img.pic2 {
+        width: 100%;
+        height: auto;
+    }
+
+    .bottom-pic {
+        height: 15rem;
+    }
+}

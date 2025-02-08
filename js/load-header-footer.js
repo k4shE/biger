@@ -17,6 +17,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navButtons = document.querySelector('.nav-buttons');
+
+    hamburger.addEventListener('click', function() {
+        navButtons.classList.toggle('active');
+    });
+});
 
 function loadHTML(url, elementId, callback) {
     fetch(url)

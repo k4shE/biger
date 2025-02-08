@@ -1,0 +1,240 @@
+/* ======= General Styles ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'EB Garamond', serif;
+    background-color: #f5f5f5;
+    color: black; /* Set text color to black */
+}
+
+/* ======= Header ======= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    max-width: 100%;
+    flex-direction: row;
+}
+
+/* Logo */
+.logo img {
+    width: 100px;
+}
+
+/* Header Row for Mobile */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+}
+
+/* Navigation Menu */
+nav {
+    width: 100%;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'EB Garamond', serif;
+    color: black; /* Ensure button text is black */
+}
+
+/* ======= Search & User Section ======= */
+.search-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Search Bar */
+.search-cart {
+    display: flex;
+    border-radius: 10px;
+    background-color: #ddd;
+    align-items: center;
+    padding: 5px;
+    width: 200px;
+}
+
+.search-cart input {
+    padding: 5px;
+    border: none;
+    background-color: #ddd;
+    border-radius: 10px;
+    width: 100%;
+    color: black; /* Input text color */
+}
+
+.search-cart input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.search-cart button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Shop & Login Buttons */
+.shop-log-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#shop-btn, #log-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black; /* Ensure button text is black */
+}
+
+#shop-btn a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black; /* Ensure links are black */
+}
+
+/* ======= Hamburger Button ======= */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black; /* Set hamburger icon color */
+}
+
+/* ======= Footer ======= */
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #6b6969;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: black; /* Ensure footer links are black */
+    font-family: 'EB Garamond', serif;
+    font-size: 0.875rem;
+}
+
+.footer-links img {
+    width: 80px;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #474747;
+}
+
+.footer-social img {
+    width: 25px;
+}
+
+.copy-right {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    font-size: 0.875rem;
+    font-family: 'EB Garamond', serif;
+    color: black; /* Ensure copyright text is black */
+}
+
+/* ======= Responsive Styles ======= */
+@media (max-width: 767px) {
+    /* Adjust Header Layout */
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    /* Show Hamburger Menu */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide Navigation Menu by Default */
+    .nav-buttons {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background: #fff;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-buttons.active {
+        display: flex;
+    }
+
+    /* Footer Adjustments */
+    .footer-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.75rem;
+        gap: 8px;
+    }
+
+    .footer-links img {
+        width: 50px;
+    }
+
+    .footer-social {
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .footer-social img {
+        width: 20px;
+    }
+
+    .copy-right {
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Hide Hamburger on Larger Screens */
+    .hamburger {
+        display: none;
+    }
+}
